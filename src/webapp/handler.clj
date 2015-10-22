@@ -5,18 +5,18 @@
             [org.httpkit.server :refer [run-server]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
-  (def name "Joe")
+  (def whom "Joe")
+
   (defroutes app-routes
-    (GET "/" [] "Hello World")
-    (GET "/set/:name" [n] (swap! name n))
-    (GET "/hello" []
+    (GET "/set/:name" [name] (def whom name))
+    (GET "/" []
       (hiccup/html
         [:html
           [:head [:title "yay!"]]
           [:meta {:encoding "utf-8"}]
           [:body
             [:h1 {:class "title"}
-              (str "Hello " name)]]]))
+              (str "Hello " whom)]]]))
     (route/not-found "Not Found"))
 
 (defn init [] "hi")
