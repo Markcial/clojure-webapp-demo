@@ -24,11 +24,11 @@ Once inside the repl, change the scope:
 
 Print name variable with:
 
-     name
+     whom
 
  Replace name variable with:
 
-     (def name "Mike")
+     (def whom "Mike")
 
  Reload server to see the new variable loaded over http
 
